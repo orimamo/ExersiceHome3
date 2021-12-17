@@ -33,8 +33,14 @@ public class ExersiceHome9 {
         int [] array = new int[ARRAY_SIZE];
         System.out.println("enter your guess");
         int userGuess = scanner.nextInt();
-            if (userGuess / 1000 >= 7 ) {
-                System.out.print("wrong number");
+            if (userGuess < 1000 ||userGuess>9999 ) {
+                if (userGuess<1000){
+                    System.out.println("number is have less than 4 digits");
+
+                }
+                else {
+                    System.out.println("number is have more than 4 digits");
+                }
             } else {
                 for (int i = array.length-1; i >= 0; i=i-1) {
                         array[i] = userGuess % 10;
@@ -48,7 +54,7 @@ public class ExersiceHome9 {
     public static boolean checkPropriety(int [] guess) {
         boolean check = false;
         for (int i=0;i<guess.length;i++){
-            if(guess[i]<=6){
+            if(guess[i]<=6 && guess[i]!=0){
                 check=true;
             }
             else {
@@ -117,9 +123,13 @@ public class ExersiceHome9 {
         int accurate=0;
         int [] guess =new int[ARRAY_SIZE];
         while (i>0){
-            guess=UserGuess();
-            check=checkPropriety(guess);
-            if (check) {
+            do {
+                guess=UserGuess();
+                check=checkPropriety(guess);
+            }while (!check);
+
+           // if (check)
+           // {
                 int checkRepetition= checkRepetitions(guess);
                 if (checkRepetition >= 1) {
                     i -= 2;
@@ -134,7 +144,7 @@ public class ExersiceHome9 {
 
                     }
                 }
-            }
+           // }
         }
         if (i==0 && accurate!=4 ){
             System.out.println("you loos!");
@@ -169,12 +179,4 @@ public class ExersiceHome9 {
     }
 
 }
-
-
-/*for (int i=0;i<array.length;i++){
-        System.out.print(array[i] + ",");
-        }
-        guess=UserGuess();
-        System.out.println(checkPropriety(array));
-        isAccurate(array,guess);*/
 

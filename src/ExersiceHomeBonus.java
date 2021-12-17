@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ExersiceHomeBonus {
     public static boolean property(String str) {
         boolean check = false;
@@ -47,6 +49,7 @@ public class ExersiceHomeBonus {
                     i++;
                     check = true;
                     if (str.charAt(i) > '0' && str.charAt(i) < '9') {
+                        i++;
                         check = true;
                     } else if (str.charAt(i) == '(') {
                         check = true;
@@ -66,6 +69,7 @@ public class ExersiceHomeBonus {
                         check = true;
                     } else if (str.charAt(i) > '0' && str.charAt(i) < '9') {
                         check = true;
+
                     }
                 } else {
                     check = false;
@@ -80,7 +84,18 @@ public class ExersiceHomeBonus {
     }
 
     public static void main(String[] args) {
-        String str = "3(5-9)";
-        System.out.println(property(str));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter your question");
+        String str=scanner.next();
+        boolean check=property(str);
+        while (!check){
+            System.out.println(check);
+            System.out.println("enter again");
+            str=scanner.next();
+            check=property(str);
+        }
+
+
+
     }
 }
