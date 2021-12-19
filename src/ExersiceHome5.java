@@ -59,7 +59,7 @@ public class ExersiceHome5 {
     }
 
     public static void main(String[] args) {
-        String str = "rt ";
+        String str = "rt";
         System.out.println(decode(str));
     }
 

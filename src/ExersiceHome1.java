@@ -63,7 +63,7 @@ public class ExersiceHome1 {
     }
 
     public static void main(String[] args) {
-       int [] a= {45,23,67};
+       int [] a= {4523,2367,6718};
        System.out.println(smallestIndex(a));
     }
 }

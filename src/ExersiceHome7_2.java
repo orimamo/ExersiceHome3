@@ -13,37 +13,70 @@ public class ExersiceHome7_2 {
                 }
                 while (i < str.length()) {
                     if (i == 1) {
-                        temp = temp + str.charAt(i - 1) + str.charAt(i);
+                        temp = temp + str.charAt(i - 1);
+                        while(str.charAt(i) >= '0' && str.charAt(i) <= '9')
+                        {
+                            temp=temp + str.charAt(i);
+                            i++;
+                        }
                         a = Integer.parseInt(temp);
                         temp = "";
                         i = i + 4;
                     } else {
-                        temp = temp + str.charAt(i);
+                        while(str.charAt(i) >= '0' && str.charAt(i) <= '9')
+                        {
+                            temp = temp + str.charAt(i);
+                            i++;
+                        }
                         a = Integer.parseInt(temp);
                         temp = "";
-                        i = i + 4;
+                        i = i + 3;
                     }
                     if (str.charAt(i) == '-') {
-                        temp = temp + str.charAt(i) + str.charAt(i + 1);
+                        temp = temp + str.charAt(i);
+                        i++;
+                        while(str.charAt(i) >= '0' && str.charAt(i) <= '9')
+                        {
+                            temp=temp + str.charAt(i);
+                            i++;
+                        }
+
                         b = Integer.parseInt(temp);
                         temp = "";
-                        i = i + 3;
+                        i = i + 1;
                     } else {
                         if (str.charAt(i) == '+') {
                             temp = temp + str.charAt(i + 1);
+                            i++;
+                            while(str.charAt(i) >= '0' && str.charAt(i) <= '9')
+                            {
+                                temp=temp + str.charAt(i);
+                                i++;
+                            }
                             b = Integer.parseInt(temp);
                             temp = "";
-                            i = i + 3;
+                            i = i + 1;
                         }
                     }
                     if (str.charAt(i) == '-') {
-                        temp = temp + str.charAt(i) + str.charAt(i + 1);
+                        temp = temp + str.charAt(i);
+                        i++;
+                        while(str.charAt(i) >= '0' && str.charAt(i) <= '9')
+                        {
+                            temp=temp + str.charAt(i);
+                            i++;
+                        }
                         c = Integer.parseInt(temp);
                         temp = "";
                         break;
                     } else {
                         if (str.charAt(i) == '+') {
-                            temp = temp + str.charAt(i + 1);
+                           i++;
+                            while(str.charAt(i) >= '0' && str.charAt(i) <= '9')
+                            {
+                                temp=temp + str.charAt(i);
+                                i++;
+                            }
                             c = Integer.parseInt(temp);
                             temp = "";
                             break;
@@ -78,6 +111,10 @@ public class ExersiceHome7_2 {
                 } else if (str.charAt(i) >= '0' && str.charAt(i) <= '9') {
                     i++;
                     check = true;
+                    while (str.charAt(i) >= '0' && str.charAt(i) <= '9'){
+                        i++;
+                        check = true;
+                    }
                     if (str.charAt(i) == 'x' && str.charAt(i + 1) == '^' && str.charAt(i + 2) == '2') {
                         i = i + 3;
                         check = true;
@@ -87,6 +124,10 @@ public class ExersiceHome7_2 {
                             if ((str.charAt(i) >= '0' && str.charAt(i) <= '9')) {
                                 i++;
                                 check = true;
+                                while (str.charAt(i) >= '0' && str.charAt(i) <= '9'){
+                                    i++;
+                                    check = true;
+                                }
                                 if (str.charAt(i) == 'x') {
                                     i++;
                                     if (str.charAt(i) == '+' || str.charAt(i) == '-') {
@@ -95,9 +136,14 @@ public class ExersiceHome7_2 {
                                         if ((str.charAt(i) >= '0' && str.charAt(i) <= '9')) {
                                             i++;
                                             check = true;
+                                            while (str.charAt(i) >= '0' && str.charAt(i) <= '9'){
+                                                i++;
+                                                check = true;
+                                            }
                                             if (str.charAt(i) == '=' && str.charAt(i + 1) == '0') {
                                                 check = true;
                                                 break;
+
                                             }
                                         }
                                     }
@@ -113,7 +159,7 @@ public class ExersiceHome7_2 {
             return check;
         }
         public static void main(String[] args) {
-            String str = "-1x^2-2x+1=0";
+            String str = "1x^2-7x+10=0";
             QuadraticEquation(str);
         }
     }

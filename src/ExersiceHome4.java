@@ -13,8 +13,11 @@ public class ExersiceHome4 {
                 }
             }
         }
+        else if(array.length==1){
+            check=true;
+        }
         else {
-            check=false;
+            check=true;
         }
         return check;
         }
@@ -37,7 +40,7 @@ public class ExersiceHome4 {
     }
 
     public static void main(String[] args) {
-        int [] array ={10,12,11,14,13,16,15};
+        int [] array ={10};
         //sort(array);
         boolean check = fullArray(array);
         System.out.println(check);
