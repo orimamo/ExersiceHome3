@@ -159,7 +159,7 @@ public class ExersiceHome7_2 {
             return check;
         }
         public static void main(String[] args) {
-            String str = "1x^2-7x+10=0";
+            String str = "1x^2-10x+25=0";
             QuadraticEquation(str);
         }
     }
